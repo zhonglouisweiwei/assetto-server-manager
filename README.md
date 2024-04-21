@@ -59,20 +59,20 @@ services:
   server-manager:
     image: seejy/assetto-server-manager:latest
     ports:
-    # the port that the server manager runs on
+    # server manager运行的端口
     - "8772:8772"
-    # the port that the assetto server runs on (may vary depending on your configuration inside server manager)
+    # assetto服务器运行的端口（可能会根据您在server manager内的配置而变化）
     - "9600:9600"
     - "9600:9600/udp"
-    # the port that the assetto server HTTP API runs on.
+    # assetto服务器HTTP API运行的端口。
     - "8081:8081"
-    # you may also wish to bind your configured UDP plugin ports here. 
+    # 您可能还希望在这里绑定配置的UDP插件端口。
     volumes: 
-    # volume mount the entire server install so that 
-    # content etc persists across restarts
+    # 将整个服务器安装作为卷挂载，以便
+    # 内容等在重启后持久化
     - ./server-install:/home/assetto/server-manager/assetto
     
-    # volume mount the config
+    # 卷挂载配置文件
     - ./config.yml:/home/assetto/server-manager/config.yml
 ```
 
